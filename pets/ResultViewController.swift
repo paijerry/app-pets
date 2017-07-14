@@ -8,9 +8,11 @@
 
 import UIKit
 
-var detail:Any?
+var detail:[String:Any]?
 
 class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var refreshControl: UIRefreshControl!
 
     override func viewDidLoad() {
         
@@ -73,6 +75,10 @@ class ResultViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         // 是否可以多選 cell
         myTableView.allowsMultipleSelection = false
+        
+        // https://www.appcoda.com.tw/custom-pull-to-refresh/
+        refreshControl = UIRefreshControl()
+        myTableView.addSubview(refreshControl)
         
         // 加入到畫面中
         self.view.addSubview(myTableView)
